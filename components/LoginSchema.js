@@ -4,16 +4,14 @@
 import React, { useRef, useCallback, useState } from 'react';
 import Webcam from 'react-webcam';
 
-const CameraCapture = () => {
+const LoginSchema = () => {
     const webcamRef = useRef(null);
-    
-    
-    const capture = useCallback(() => {
 
+    const capture = useCallback(() => {
         const imageSrc = webcamRef.current.getScreenshot();
         console.log(imageSrc);
         
-        fetch('http://127.0.0.1:8000/api/predict', {
+        fetch('http://127.0.0.1:8000/api/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json', 
@@ -45,4 +43,4 @@ const CameraCapture = () => {
     );
 };
 
-export default CameraCapture;
+export default LoginSchema;
